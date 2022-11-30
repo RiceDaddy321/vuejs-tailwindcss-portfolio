@@ -65,13 +65,41 @@ npm install
 npm run serve
 ```
 
+# How to use
+
+Because Vue has an excellent component system, you only need to look at the components folder to edit the different sections of this website. 
+For example, if you wanted to edit the paragraph in the 'About Me' view, all you would need to do is navigate to 'src/components/about/AboutMe.vue'. There you can edit one of the bio in the bios ref, or add more depending on your use case. This also means that if you want to retain the general structure but change some colors you could do so by adding a new theme, firstly, to the tailwind.config.js, then adding a function to use that theme in the file 'src/composables/useThemeSwitcher.js', and change the return value of **'toggleTheme'**.
+
+## file structure
+
+### public
+No need to edit unless you want to add more files (like a transcript, resume, etc. ) to your site.
+
+### dist
+When you run ```npm run build```, Vue will create the css, html, and javascript to help you deploy your site with firebase.
+
+### src
+- assets: store all of your media, fonts, and css here that you want to access from within your components.
+- components:  The folders inside represents the components that belong to the view with the same name. This is an easy way to organize your view specific components.
+- composables: basically your pure js files go here to reduce the amount of code that is scattered about.
+- data: Store your json, databases, and files that store data that you will reuse throughout your entire site
+- router: This stores the mapping of paths to the component to be rendered.
+- views: Store your pages here, each file is a component that will be used to render a page on your site.
+- main.js: don't mess with this too much because this is the root of your Vue application
+- App.vue: This is the component that serves as the container for all of the different pages for your site. VueRouter will replace **router-view** with the component that is mapped to the url. Change this to style the general layout of your site.
+
+### 
+
+
+## adding projects
+it's very straightforward, just follow the format in the file: 'src/data/projects.js' to add a new project, and vue will render that project cleanly. 
+
+## adding more pages
+
+
 ## Notes
 
 -   Always run `npm install` after pulling new changes
--   I'll be constantly updating this repo as I'll be adding more sections to it, so please always check the projects section of this repo to see what tasks are under todo and in progress
--   Coming Soon [I'll be doing a screencast](https://www.youtube.com/c/StomanStudio). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of creating this portoflio
--   Illustrations from [unDraw](https://undraw.co) and [Freepik](https://freepik.com)
--   Images from [Unsplash](https://unsplash.com)
 -   Feel free to use it as your own portfolio
 -   Contributions are welcome
 
