@@ -1,12 +1,9 @@
-<script>
-export default {
-	props: ['title'],
-	data: () => {
-		return {
-			//
-		};
-	},
-};
+<!-- eslint-disable no-undef -->
+<!-- eslint-disable no-unused-vars -->
+<script setup>
+const props = defineProps({
+	title: String
+});
 </script>
 
 <template>

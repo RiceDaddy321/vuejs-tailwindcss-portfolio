@@ -1,25 +1,29 @@
-<script>
+<script setup>
+import { onMounted, onBeforeMount, reactive, onUpdated } from 'vue';
+import { useRouter } from 'vue-router';
 import feather from 'feather-icons';
+const router = useRouter();
 
-export default {
-	name: 'Home',
-	data: () => {
-		return {
-			theme: '',
-		};
-	},
-	created() {
-		this.theme = localStorage.getItem('theme') || 'light';
-	},
-	mounted() {
-		feather.replace();
-		this.theme = localStorage.getItem('theme') || 'light';
-	},
-	updated() {
-		feather.replace();
-	},
-	methods: {},
-};
+// This is just to give this component a name for vue-router
+router.push({
+	name: 'Home'
+});
+
+let theme = reactive('');
+// your name
+let name = reactive("Juan");
+
+onBeforeMount(() => {
+	theme = localStorage.getItem('theme') || 'light';
+})
+
+onMounted(() => {
+	feather.replace();
+	theme = localStorage.getItem('theme') || 'light';
+});
+onUpdated(() => {
+	feather.replace();
+});
 </script>
 
 <template>
@@ -31,7 +35,7 @@ export default {
 			<h1
 				class="font-general-semibold text-3xl md:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
 			>
-				Hi, Iam Stoman
+				Hi, I am {{name}}
 			</h1>
 			<p
 				class="font-general-medium mt-2 text-lg sm:text-xl  xl:text-2xl text-center sm:text-left leading-none text-gray-400"

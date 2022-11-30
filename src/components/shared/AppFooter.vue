@@ -1,11 +1,8 @@
-<script>
+<script setup>
+import {reactive, onMounted, onUpdated} from 'vue';
 import feather from 'feather-icons';
 import FooterCopyright from './FooterCopyright.vue';
-export default {
-	components: { FooterCopyright },
-	data() {
-		return {
-			socials: [
+let socials = reactive([
 				{
 					id: 1,
 					name: 'GitHub',
@@ -30,16 +27,16 @@ export default {
 					icon: 'instagram',
 					url: 'https://instagram.com/realstoman',
 				},
-			],
-		};
-	},
-	mounted() {
+			]);
+
+	onMounted(() => {
 		feather.replace();
-	},
-	updated() {
+	});
+
+	onUpdated(() => {
 		feather.replace();
-	},
-};
+	});
+
 </script>
 
 <template>

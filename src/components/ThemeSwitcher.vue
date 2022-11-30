@@ -1,20 +1,18 @@
-<script>
-export default {
-	props: {
+<script setup>
+// eslint-disable-next-line no-unused-vars, no-undef
+const props = defineProps({
 		theme: {
 			type: String,
 			required: true,
-		},
-	},
-	methods: {
-		toggleTheme() {
+		},});
+		
+
+	function toggleTheme() {
 			const newTheme = this.theme === 'light' ? 'dark' : 'light';
 			localStorage.setItem('theme', newTheme);
 			this.$emit('themeChanged', newTheme);
 			this.$router.go();
-		},
-	},
-};
+		}
 </script>
 
 <template>

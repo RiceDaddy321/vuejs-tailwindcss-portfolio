@@ -1,16 +1,14 @@
-<script>
-import AppBanner from '@/components/shared/AppBanner';
+<script setup>
+import { useRouter } from 'vue-router';
+import AppBanner from '@/components/shared/AppBanner.vue';
 import ProjectsGrid from '../components/projects/ProjectsGrid.vue';
 import Button from '../components/reusable/Button.vue';
+const router = useRouter();
 
-export default {
-	name: 'Home',
-	components: {
-		AppBanner,
-		ProjectsGrid,
-		Button,
-	},
-};
+// This is just to give this component a name for vue-router
+router.push({
+	name: 'Home'
+});
 </script>
 
 <template>

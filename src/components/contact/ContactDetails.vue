@@ -1,7 +1,9 @@
-<script>
-export default {
-	props: ['contacts'],
-};
+<!-- eslint-disable no-undef -->
+<script setup>
+// eslint-disable-next-line no-unused-vars
+const props = defineProps({
+	contacts: String
+});
 </script>
 
 <template>

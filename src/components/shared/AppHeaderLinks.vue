@@ -1,7 +1,7 @@
-<script>
-export default {
-	props: ['showModal', 'isOpen'],
-};
+<!-- eslint-disable no-undef -->
+<!-- eslint-disable no-unused-vars -->
+<script setup>
+const props = defineProps(['showModal', 'isOpen']);
 </script>
 
 <template>

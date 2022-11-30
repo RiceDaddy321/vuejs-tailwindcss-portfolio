@@ -1,51 +1,42 @@
-<script>
+<script setup>
+import {ref, computed, onMounted} from 'vue';
 import feather from 'feather-icons';
 import ProjectsFilter from './ProjectsFilter.vue';
 import ProjectSingle from './ProjectSingle.vue';
 import projects from '../../data/projects';
 
-export default {
-	components: { ProjectSingle, ProjectsFilter },
-	data: () => {
-		return {
-			projects,
-			projectsHeading: 'Projects Portfolio',
-			selectedCategory: '',
-			searchProject: '',
-		};
-	},
-	computed: {
-		// Get the filtered projects
-		filteredProjects() {
-			if (this.selectedCategory) {
-				return this.filterProjectsByCategory();
-			} else if (this.searchProject) {
-				return this.filterProjectsBySearch();
-			}
-			return this.projects;
-		},
-	},
-	methods: {
-		// Filter projects by category
-		filterProjectsByCategory() {
-			return this.projects.filter((item) => {
+onMounted(() => {
+	feather.replace();
+});
+
+let projectsHeading = ref('Projects Portfolio');
+let selectedCategory = ref('');
+let searchProject = ('');
+
+function filterProjectsByCategory() {
+			return projects.filter((item) => {
 				let category =
 					item.category.charAt(0).toUpperCase() +
 					item.category.slice(1);
 				console.log(category);
-				return category.includes(this.selectedCategory);
+				return category.includes(selectedCategory.value);
 			});
-		},
-		// Filter projects by title search
-		filterProjectsBySearch() {
-			let project = new RegExp(this.searchProject, 'i');
-			return this.projects.filter((el) => el.title.match(project));
-		},
-	},
-	mounted() {
-		feather.replace();
-	},
-};
+		}
+
+function filterProjectsBySearch() {
+	let project = new RegExp(searchProject, 'i');
+	return projects.filter((el) => el.title.match(project));
+}
+
+const filteredProjects = computed(() => {
+			if (selectedCategory.value) {
+				return filterProjectsByCategory();
+			} else if (searchProject) {
+				return filterProjectsBySearch();
+			}
+			return projects;
+		});
+
 </script>
 
 <template>

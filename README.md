@@ -1,8 +1,11 @@
 # Vuejs & TailwindCSS Portfolio - With Dark Mode
 
 A simple portfolio starter theme built with Vue.js v3 and Tailwind CSS v3.
+This was built upon [whosbs'][whosbs] code
 
 ![Vuejs-TailwindCSS-Portfolio](https://user-images.githubusercontent.com/16396664/140909796-815239e4-a986-46ad-bbd0-4b166127bbb8.JPG)
+
+[whosbs]: https://github.com/whosbs
 
 ## Demo URL
 
@@ -71,3 +74,5 @@ npm run serve
 -   Images from [Unsplash](https://unsplash.com)
 -   Feel free to use it as your own portfolio
 -   Contributions are welcome
+
+

@@ -1,12 +1,13 @@
-<script>
+<script setup>
+import { useRouter } from 'vue-router';
 import ProjectsGrid from '../components/projects/ProjectsGrid.vue';
 
-export default {
-	name: 'Projects',
-	components: {
-		ProjectsGrid,
-	},
-};
+const router = useRouter();
+
+// This is just to give this component a name for vue-router
+router.push({
+	name: 'Projects'
+});
 </script>
 
 <template>
